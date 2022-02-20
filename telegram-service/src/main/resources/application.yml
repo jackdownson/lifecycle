@@ -1,0 +1,33 @@
+# Spring properties
+spring:
+  application:
+    name: telegram-service
+  rabbitmq:
+    host: localhost # RabbitMQ host.
+    username: guest # Login user to authenticate to the broker.
+    password: guest # Login to authenticate against the broker.
+    port: 5673 # RabbitMQ port.
+
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+
+# HTTP Server
+server:
+  port: 8083   # HTTP (Tomcat) port
+  servlet:
+    context-path: /telegram-service
+
+constants:
+  rabbit:
+    queue: "data-queue"
+    binding:
+    routing-key: "data.#"
+    exchange: "data-exchange"
+
+
+logging:
+  level:
+    web: TRACE

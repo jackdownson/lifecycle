@@ -1,0 +1,23 @@
+{
+  "properties": [
+    {
+      "name": "constants.rabbit.queue",
+      "type": "java.lang.String",
+      "description": "Description for constants.rabbit.queue."
+    },
+    {
+      "name": "constants.rabbit.binding",
+      "type": "java.lang.String",
+      "description": "Description for constants.rabbit.binding."
+    },
+    {
+      "name": "constants.rabbit.routing-key",
+      "type": "java.lang.String",
+      "description": "Description for constants.rabbit.routing-key."
+    },
+    {
+      "name": "constants.rabbit.exchange",
+      "type": "java.lang.String",
+      "description": "Description for constants.rabbit.exchange."
+    }
+  ] }
