@@ -1,5 +1,6 @@
 package com.crudservice.dto.message;
 
+import com.crudservice.domain.UserData;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,7 +16,7 @@ import java.util.Date;
 public class UserDataMessage {
 
     private String messageId;
-    private String message;
     private Date messageDate;
+    private UserData userData;
 
 }

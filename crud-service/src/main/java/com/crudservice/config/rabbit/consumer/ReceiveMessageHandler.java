@@ -1,5 +1,6 @@
 package com.crudservice.config.rabbit.consumer;
 
+import com.crudservice.dto.message.UserDataMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -7,8 +8,8 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class ReceiveMessageHandler {
 
-    public void getMessageFromTelegramServer(String messageBody){
-        log.info(messageBody);
+    public UserDataMessage getMessageFromTelegramService(UserDataMessage message){
+        return message;
     }
 
 }

@@ -1,13 +1,16 @@
-package com.telegramservice.config.producer;
+package com.telegramservice.producer;
 
 import com.telegramservice.config.ConfigConstants;
-import com.telegramservice.config.ConfigureRabbitMq;
+import com.telegramservice.dto.UserDataDto;
+import com.telegramservice.dto.message.UserDataMessage;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Date;
+import java.util.UUID;
 
 @RestController
 public class SendMessageController {
@@ -21,9 +24,19 @@ public class SendMessageController {
     }
 
     @PostMapping("/send")
-    public ResponseEntity<?> sendMessage(@RequestParam String themessage) {
+    public ResponseEntity<?> sendMessage() {
+        UserDataMessage message = new UserDataMessage();
+        UserDataDto userData = new UserDataDto();
+        userData.setDayNotes("day was good");
+        userData.setAssignmentTime(new Date());
+        userData.setWork("12");
+
+        message.setMessageId(UUID.randomUUID().toString());
+        message.setMessageDate(new Date());
+        message.setUserDataDto(userData);
+
         rabbitTemplate.convertAndSend(config.EXCHANGE_NAME,
-                config.ROUTING_KEY, themessage);
-        return ResponseEntity.ok("We have sent a message! :" + themessage);
+                config.ROUTING_KEY, message);
+        return ResponseEntity.ok("We have sent a message! :" + message);
     }
 }
