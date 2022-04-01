@@ -1,3 +1,8 @@
+# Telegram bot properties
+telegrambot_token: "5200885780:AAHKYBPD6Y5PCYwfExQXHjocGGeBb7DD1RM"
+telegrambot_username: "lifelogging_bot"
+telegrambot_webhook: "https://d15c-176-193-236-18.ngrok.io"
+
 # Spring properties
 spring:
   application:
@@ -17,8 +22,8 @@ eureka:
 # HTTP Server
 server:
   port: 8083   # HTTP (Tomcat) port
-  servlet:
-    context-path: /telegram-service
+#  servlet:
+#    context-path:
 
 constants:
   rabbit:
