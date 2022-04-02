@@ -1,4 +1,4 @@
-package com.telegramservice.producer;
+package com.telegramservice.config.rabbit.producer;
 
 import com.telegramservice.config.ConfigConstants;
 import com.telegramservice.dto.UserDataDto;
@@ -6,7 +6,6 @@ import com.telegramservice.dto.message.UserDataMessage;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;

@@ -1,35 +1,33 @@
-package com.telegramservice;
+package com.telegramservice.config.telegram;
 
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Value;
-import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.bots.TelegramWebhookBot;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
-import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+
 
 @Getter
 @Setter
+@RequiredArgsConstructor
 public class LifeCycleBot extends TelegramWebhookBot {
-    private String botWebhook;
+
+    private String webhookPath;
     private String botToken;
     private String botName;
 
-
     @Override
-    public BotApiMethod onWebhookUpdateReceived(Update update) {
+    public BotApiMethod<?> onWebhookUpdateReceived(Update update) {
+            SendMessage message = new SendMessage();
         if (update.getMessage() != null && update.getMessage().hasText()) {
-            long chat_id = update.getMessage().getChatId();
-
-            try {
-                execute(new SendMessage(chat_id, "Pidor " + update.getMessage().getText()));
-            } catch (TelegramApiException e) {
-                e.printStackTrace();
-            }
+            message.setChatId(update.getMessage().getChatId());
+            message.setText("Серега педор");
+        return message;
         }
-        return new SendMessage();
+
+        return message;
     }
 
     @Override
@@ -45,5 +43,9 @@ public class LifeCycleBot extends TelegramWebhookBot {
     @Override
     public String getBotPath() {
         return null;
+    }
+
+    public void setWebhook(String webhookPath) {
+        this.webhookPath = webhookPath;
     }
 }
