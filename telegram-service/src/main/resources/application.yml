@@ -35,5 +35,5 @@ logging:
 telegram:
   bot:
     token: "5200885780:AAHKYBPD6Y5PCYwfExQXHjocGGeBb7DD1RM"
-    name: "LifecycleBot"
+    name: "LifecycleBotqq"
     webhookPath: "https://edaf-188-32-209-237.ngrok.io"
